@@ -1,0 +1,15 @@
+{
+  "name": "spec-kit-codex-marketplace",
+  "interface": {
+    "displayName": "Spec Kit for Codex"
+  },
+  "plugins": [
+    {
+      "name": "spec-kit-codex",
+      "source": {
+        "source": "local",
+        "path": "./plugins/spec-kit-codex"
+      }
+    }
+  ]
+}

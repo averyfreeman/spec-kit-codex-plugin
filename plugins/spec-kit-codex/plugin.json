@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "spec-kit-codex",
+  "version": "0.1.0",
+  "description": "Spec-driven workflows for Codex projects, including new-project setup and brownfield adoption.",
+  "author": {
+    "name": "Avery Freeman",
+    "url": "https://github.com/averyfreeman"
+  },
+  "repository": "https://github.com/averyfreeman/spec-kit-codex-plugin",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "spec-driven-development",
+    "spec-kit",
+    "brownfield",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Spec Kit for Codex",
+        "shortDescription": "Spec-driven coding workflows",
+        "longDescription": "Guided greenfield and brownfield Spec Kit workflows with pinned upstream instructions, read-only project diagnosis, and review gates before changes.",
+        "developerName": "Avery Freeman",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": [
+          "Use Spec Kit to plan a new feature in this project.",
+          "Help me adopt spec-driven development in this existing codebase.",
+          "Review my specification and identify ambiguities before implementation."
+        ],
+        "brandColor": "#2458A6"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "spec-kit-codex": {
+      "type": "stdio",
+      "command": "go",
+      "args": [
+        "run",
+        "${PLUGIN_ROOT}/cmd/spec-kit-codex",
+        "--plugin-root",
+        "${PLUGIN_ROOT}"
+      ],
+      "cwd": "${PLUGIN_ROOT}"
+    }
+  }
+}

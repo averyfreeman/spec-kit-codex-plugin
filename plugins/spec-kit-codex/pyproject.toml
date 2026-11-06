@@ -1,0 +1,12 @@
+[project]
+name = "spec-kit-codex-runtime"
+version = "0.1.0"
+description = "Locked runtime environment for the pinned Spec Kit CLI used by the Codex plugin."
+requires-python = ">=3.11"
+dependencies = ["specify-cli==1.3.2"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+specify-cli = { path = "upstream/spec-kit-official" }

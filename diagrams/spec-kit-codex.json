@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "title": "Spec Kit for Codex: architecture and workflow routing",
+  "description": "Shows the local Codex plugin's language boundaries and its greenfield and brownfield paths.",
+  "diagrams": [
+    {
+      "id": "plugin-architecture",
+      "title": "Plugin architecture and language boundaries",
+      "kind": "raw",
+      "accessibility": "Codex loads the local marketplace package. Markdown skills call a Go read-only MCP shim, which reads pinned Spec Kit and Brownfield command references. The Python CLI initializes a target project only after approval; Codex file tools create reviewed artifacts.",
+      "source": "flowchart LR\n  marketplace[\"Local Codex marketplace\\nJSON manifest\"] --> plugin[\"Spec Kit plugin\\nportable plugin.json + mcp.json\"]\n  subgraph plugin_parts[\"Plugin package\"]\n    skills[\"Codex skills\\nMarkdown workflow guidance\"]\n    shim[\"Read-only MCP shim\\nGo + official MCP SDK\"]\n  end\n  subgraph upstream[\"Pinned upstream submodules\"]\n    specify[\"GitHub Spec Kit\\nPython CLI + templates\"]\n    brownfield[\"Brownfield extension\\nMarkdown commands + YAML metadata\"]\n  end\n  subgraph target[\"Selected target project\"]\n    init[\"specify init\\nPython CLI via uv\"]\n    artifacts[\".specify/ and specs/\\nCodex-approved project artifacts\"]\n  end\n  skills -->|\"read-only tool calls\"| shim\n  shim -->|\"fixed command references\"| specify\n  shim -->|\"fixed command references\"| brownfield\n  skills -->|\"reviewed setup command\"| init\n  init --> artifacts\n  skills -->|\"approved edits\"| artifacts"
+    },
+    {
+      "id": "greenfield-brownfield-routing",
+      "title": "Greenfield and brownfield workflow gates",
+      "kind": "raw",
+      "accessibility": "A read-only project status check routes new work to the core workflow and existing projects to a read-only Brownfield scan. Brownfield adoption initializes Spec Kit only when needed after approval, then requires approval for bootstrap and one-feature-at-a-time migration.",
+      "source": "flowchart TD\n  request[\"User request\"] --> status[\"Project status\\nGo MCP, read-only\"]\n  status --> route{\"Existing source code?\\n.specify present?\"}\n  route -->|\"new or uninitialized\"| green[\"Greenfield skill\\nMarkdown\"]\n  green --> initReview{\"Review setup targets\\nand approve?\"}\n  initReview -->|\"yes\"| init[\"specify init\\nPython CLI via uv\"]\n  init --> core[\"specify → clarify → plan → tasks → implement\"]\n  core --> verify[\"Analyze and converge\\nCodex tools + project checks\"]\n  route -->|\"existing project\"| scan[\"Brownfield scan\\nread-only\"]\n  scan --> profile[\"Review evidence-based\\nproject profile\"]\n  profile --> existingSpec{\".specify/ already present?\"}\n  existingSpec -->|\"yes\"| bootstrapGate{\"Approve bootstrap\\nfile plan?\"}\n  existingSpec -->|\"no\"| brownfieldInitReview{\"Review init targets\\nand approve?\"}\n  brownfieldInitReview -->|\"yes\"| brownfieldInit[\"specify init\\nPython CLI via uv\"]\n  brownfieldInit --> bootstrapGate\n  bootstrapGate -->|\"yes\"| bootstrap[\"Bootstrap Spec Kit artifacts\\nCodex file tools\"]\n  bootstrap --> validate[\"Brownfield validate\\nread-only\"]\n  validate --> migrateGate{\"Select one feature\\nand approve migration plan?\"}\n  migrateGate -->|\"yes\"| migrate[\"Migrate spec, plan, tasks\\nCodex file tools\"]\n  migrate --> verify"
+    }
+  ]
+}

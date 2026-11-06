@@ -1,0 +1,6 @@
+[submodule "plugins/spec-kit-codex/upstream/spec-kit-official"]
+	path = plugins/spec-kit-codex/upstream/spec-kit-official
+	url = https://github.com/github/spec-kit.git
+[submodule "plugins/spec-kit-codex/upstream/spec-kit-brownfield"]
+	path = plugins/spec-kit-codex/upstream/spec-kit-brownfield
+	url = https://github.com/Quratulain-bilal/spec-kit-brownfield.git

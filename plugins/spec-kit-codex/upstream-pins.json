@@ -1,0 +1,12 @@
+{
+  "spec-kit-official": {
+    "url": "https://github.com/github/spec-kit.git",
+    "ref": "v1.3.2",
+    "commit": "55264c2f2f2d1146f02abc543cb913dcdf1f9342"
+  },
+  "spec-kit-brownfield": {
+    "url": "https://github.com/Quratulain-bilal/spec-kit-brownfield.git",
+    "ref": "v1.0.0",
+    "commit": "7479c5206a573e95890cbc252dd30806121a44bb"
+  }
+}
